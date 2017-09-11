@@ -1,2 +1,45 @@
 <script src="https://hybroker.rethink.ptinovacao.pt/.well-known/runtime/rethink.js"></script>
+<script>
 
+
+
+
+function startUsingDeployedHperty(hyperty){
+    hyperty.instance.hello(observer).then( function() {
+      hyperty.instance.bye('Bye bye');
+      });
+  }
+
+
+ function deployHyperty(){
+      runtime.requireHyperty(hypertyCatalogueURL).then( function(hyperty) {
+          startUsingDeployedHperty(hyperty);
+        }).catch(function(reason) {
+        errorMessage(reason);
+      });
+    }
+
+
+ let config = {
+      "development": true,
+      "runtimeURL": "hyperty-catalogue://hybroker.rethink.ptinovacao.pt/.well-known/runtime/Runtime",
+      "domain": "hybroker.rethink.ptinovacao.pt"
+    }
+
+    let runtime;
+    let hypertyCatalogueURL = config.domain + '/.well-known/hyperty/HelloWorldReporter';
+
+    rethink.install(config).then(function(result) {
+
+      runtime = result;
+
+      deployHyperty();
+
+    }).catch(function(reason) {
+      console.error(reason);
+    });
+
+
+
+
+</script>
