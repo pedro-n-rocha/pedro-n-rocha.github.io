@@ -29,9 +29,9 @@ function startUsingDeployedHperty(hyperty){
     let runtime;
     let hypertyCatalogueURL = config.domain + '/.well-known/hyperty/HelloWorldReporter';
 
-	    rethink.default.install(config).then(function(result) {
+    rethink.default.install(config).then(function(result) {
 
-      runtime = result;
+    runtime = result;
 
       deployHyperty();
 
@@ -40,6 +40,9 @@ function startUsingDeployedHperty(hyperty){
     });
 
 
-
+$(document).ready(function(){
+    console.log( "ready!" );
+    loadRuntime();
+  });
 
 </script>
