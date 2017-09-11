@@ -29,7 +29,7 @@ function startUsingDeployedHperty(hyperty){
     let runtime;
     let hypertyCatalogueURL = config.domain + '/.well-known/hyperty/HelloWorldReporter';
 
-    rethink.install(config).then(function(result) {
+	    rethink.default.install(config).then(function(result) {
 
       runtime = result;
 
