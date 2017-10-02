@@ -24,22 +24,21 @@ function startUsingDeployedHperty(hyperty){
     }
 
     let runtime;
-    let hypertyCatalogueURL = config.domain + '/.well-known/hyperty/HelloWorldReporter';
+
+    let hypertyCatalogueURL = 'hyperty-catalogue://'+config.domain + '/.well-known/hyperty/HelloWorldReporter';
+
+    let observer ='hyperty://hybroker.rethink.ptinovacao.pt/d35a4bce-e281-4125-8536-a6daa24ea9ce'; // Address from the Observer Hyperty
 
     rethink.default.install(config).then(function(result) {
 
-    runtime = result;
+      runtime = result;
 
       deployHyperty();
 
     }).catch(function(reason) {
-      	console.log(reason);
-    });
+      console.error(reason);
+ 	});
 
-$(document).ready(function(){
-    console.log( "ready!" );
-    loadRuntime();
-  });
 
 </script>
 
